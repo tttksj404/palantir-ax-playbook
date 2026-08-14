@@ -657,7 +657,7 @@ AX 전환은 일회성 프로젝트가 아니라 운영 리듬이어야 합니�
 | 운영·중단·롤백 runbook | Pilot | 실제 장애·사고 대응 |
 | 가치 실현 보고서 | Pilot/Scale | 기준선 대비 결과·비용·다음 투자 판단 |
 
-이 저장소의 [AX 유스케이스 캔버스](AX-USE-CASE-CANVAS.md), [AI 평가 루브릭](EVALUATION-RUBRIC.md), [AX 프로그램 캔버스](AX-PROGRAM-CANVAS.md), [성숙도 평가](AX-MATURITY-ASSESSMENT.md)를 이 문서와 함께 사용합니다.
+이 저장소의 [AX 기술 파이프라인·시스템 설계](AX-TECHNICAL-PIPELINE.md), [AX 유스케이스 캔버스](AX-USE-CASE-CANVAS.md), [AI 평가 루브릭](EVALUATION-RUBRIC.md), [AX 프로그램 캔버스](AX-PROGRAM-CANVAS.md), [성숙도 평가](AX-MATURITY-ASSESSMENT.md)를 이 문서와 함께 사용합니다.
 
 ## 14. 시작 전 최종 체크리스트
 
