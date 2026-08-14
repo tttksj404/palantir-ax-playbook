@@ -46,6 +46,77 @@ flowchart LR
 9. [AX 실행 스킬](skills/README.md) — 유스케이스부터 FDE 현장 전달까지 재사용하는 8개 내부 `SKILL.md`
 10. [참고자료](docs/REFERENCES.md) — 공식 문서·고객 사례·GitHub 자료, 각 자료가 뒷받침하는 주장과 한계
 
+## GitHub 참고자료와 적용 지도
+
+아래 자료를 그대로 복사하지 않고, 팔란티어 공식 SDK·사례와 커뮤니티·벤더 중립 자료를 구분해 내부 AX 스킬로 재작성했습니다. 각 자료의 공식성·주의점·전체 매핑은 [GitHub AX 스킬 카탈로그](docs/GITHUB-AX-SKILLS-CATALOG.md)에 기록했습니다.
+
+```mermaid
+flowchart LR
+    subgraph Sources["GitHub 참고자료"]
+        FDE["AI FDE Library"]
+        REG["AIP Community Registry"]
+        OSDK["Palantir OSDK"]
+        DATA["Data Engineering Agent Skills"]
+        SEC["OWASP Secure Agent Playbook"]
+        ROAD["Ontology Strategy · FDE Roadmap"]
+    end
+
+    subgraph Skills["이 레포의 내부 AX 스킬"]
+        S1["01 발견"]
+        S2["02 Ontology"]
+        S3["03 데이터 계약"]
+        S4["04 AI FDE 프롬프트"]
+        S5["05 행동·승인"]
+        S6["06 평가·피드백"]
+        S7["07 운영·롤백"]
+        S8["08 FDE 전달"]
+    end
+
+    subgraph Pipeline["AX 기술 파이프라인"]
+        P1["Data · Semantic"]
+        P2["Online Decision"]
+        P3["Action · Write-back"]
+        P4["Evaluation"]
+        P5["Delivery · Operations"]
+    end
+
+    FDE --> S1
+    FDE --> S4
+    FDE --> S8
+    REG --> S2
+    REG --> S3
+    REG --> S6
+    OSDK --> S2
+    OSDK --> S5
+    DATA --> S3
+    DATA --> S7
+    SEC --> S5
+    SEC --> S7
+    ROAD --> S1
+    ROAD --> S8
+
+    S1 --> P1
+    S2 --> P1
+    S3 --> P1
+    S4 --> P2
+    S5 --> P3
+    S6 --> P4
+    S7 --> P5
+    S8 --> P5
+```
+
+| 자료 | 분류 | 이 저장소에 반영한 내용 |
+|---|---|---|
+| [Palantir AI FDE Library](https://github.com/s-andthat/palantir-ai-fde-library) | 커뮤니티 | AI FDE 작업 지시, 최소 맥락, 도구·출력·검증 계약 |
+| [AIP Community Registry](https://github.com/palantir/aip-community-registry) | Palantir GitHub의 커뮤니티 레지스트리 | AIP Evals 피드백, 이벤트 입력, DevOps, OSDK 예제 적용 위치 |
+| [Palantir OSDK TypeScript](https://github.com/palantir/osdk-ts) | Palantir 공식 SDK | Ontology Object·Action 연동 경계 |
+| [Foundry Platform Python SDK](https://github.com/palantir/foundry-platform-python) | Palantir 공식 SDK | Foundry API·AIP Agent·플랫폼 연동 경계 |
+| [Data Engineering Agent Skills](https://github.com/vaquarkhan/data-engineering-agent-skills) | 벤더 중립 커뮤니티 | 데이터 계약, 품질, 계보, replay/backfill, 릴리스 게이트 |
+| [OWASP Secure Agent Playbook](https://github.com/OWASP/secure-agent-playbook) | 보안 플레이북 | 툴·MCP 경계, 프롬프트 인젝션, 권한·감사 점검 |
+| [Ontology Strategy](https://github.com/Leading-AI-IO/palantir-ontology-strategy) · [FDE Roadmap](https://github.com/pierpaolo28/Awesome-FDE-Roadmap) | 커뮤니티 학습 자료 | 업무 객체 중심 설계, FDE 현장 전달·채택·확장 |
+
+> 참고자료는 Palantir 공식 지원이나 성능 보증을 의미하지 않습니다. 실제 계정·데이터·권한 환경에서 실행하지 않은 내용은 `설계·학습용 적용본`으로 표시합니다.
+
 ## 먼저 읽는 법
 
 - **경영진·기획자**: [AX 전환 가이드](docs/AX-TRANSFORMATION-GUIDE.md) 1~5장 → 30·60·90일 로드맵 → [프로그램 캔버스](docs/AX-PROGRAM-CANVAS.md)
