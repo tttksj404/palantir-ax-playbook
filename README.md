@@ -31,6 +31,7 @@ flowchart LR
 - 우리 조직의 AX 성숙도와 다음 투자 우선순위를 어떻게 진단하는가?
 - 실제 AX 구축에서 데이터·온라인 추론·행동·평가·CI/CD 파이프라인은 어떻게 연결하는가?
 - 모델 정확도 외에 어떤 평가·운영·변화관리 지표를 봐야 하는가?
+- GitHub의 AI FDE·데이터·보안 스킬을 AX 구축 절차에 어떻게 재사용하는가?
 
 ## 문서 구성
 
@@ -41,13 +42,16 @@ flowchart LR
 5. [AX 프로그램 캔버스](docs/AX-PROGRAM-CANVAS.md) — 전사 AX North Star·포트폴리오·조직·거버넌스·로드맵 템플릿
 6. [AX 유스케이스 캔버스](docs/AX-USE-CASE-CANVAS.md) — 개별 후보 업무와 파일럿 범위를 정의하는 템플릿
 7. [평가 루브릭](docs/EVALUATION-RUBRIC.md) — 답변·추천·행동형 AI를 출시 전에 검증하는 기준과 테스트 케이스 형식
-8. [참고자료](docs/REFERENCES.md) — 공식 문서와 고객 사례, 각 자료가 뒷받침하는 주장, 자료의 한계
+8. [GitHub AX 스킬 카탈로그](docs/GITHUB-AX-SKILLS-CATALOG.md) — 조사한 외부 저장소의 공식성·적용 단계·주의점과 내부 스킬 매핑
+9. [AX 실행 스킬](skills/README.md) — 유스케이스부터 FDE 현장 전달까지 재사용하는 8개 내부 `SKILL.md`
+10. [참고자료](docs/REFERENCES.md) — 공식 문서·고객 사례·GitHub 자료, 각 자료가 뒷받침하는 주장과 한계
 
 ## 먼저 읽는 법
 
 - **경영진·기획자**: [AX 전환 가이드](docs/AX-TRANSFORMATION-GUIDE.md) 1~5장 → 30·60·90일 로드맵 → [프로그램 캔버스](docs/AX-PROGRAM-CANVAS.md)
 - **AX/DT 담당자**: [성숙도 평가](docs/AX-MATURITY-ASSESSMENT.md) → [전환 가이드](docs/AX-TRANSFORMATION-GUIDE.md) → 포트폴리오·가치 실현 보드
-- **개발자·데이터 엔지니어**: [기술 파이프라인](docs/AX-TECHNICAL-PIPELINE.md) → 평가 루브릭 → 캔버스의 데이터·행동 계약
+- **개발자·데이터 엔지니어**: [기술 파이프라인](docs/AX-TECHNICAL-PIPELINE.md) → [AX 실행 스킬](skills/README.md) → 평가 루브릭 → 캔버스의 데이터·행동 계약
+- **AI FDE·플랫폼팀**: [GitHub AX 스킬 카탈로그](docs/GITHUB-AX-SKILLS-CATALOG.md) → 01~08 스킬을 실제 유스케이스에 순서대로 적용
 - **보안·법무·감사**: 본문 7장 권한·거버넌스 → 8장 실패 설계 → 참고자료의 근거 범위
 - **면접·스터디**: 본문 2장 핵심 구조 → 사례 표 → 마지막 학습 과제
 
