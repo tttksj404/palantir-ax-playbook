@@ -754,4 +754,4 @@ Discover → Model → Ground → Evaluate → Approve → Deploy → Observe �
 
 ---
 
-다음 문서: [AX 전환 가이드](AX-TRANSFORMATION-GUIDE.md) · [AX 성숙도 평가](AX-MATURITY-ASSESSMENT.md) · [AX 프로그램 캔버스](AX-PROGRAM-CANVAS.md) · [AX 유스케이스 캔버스](AX-USE-CASE-CANVAS.md) · [평가 루브릭](EVALUATION-RUBRIC.md) · [참고자료](REFERENCES.md)
+다음 문서: [AX 전환 가이드](AX-TRANSFORMATION-GUIDE.md) · [AX 기술 파이프라인·시스템 설계](AX-TECHNICAL-PIPELINE.md) · [AX 성숙도 평가](AX-MATURITY-ASSESSMENT.md) · [AX 프로그램 캔버스](AX-PROGRAM-CANVAS.md) · [AX 유스케이스 캔버스](AX-USE-CASE-CANVAS.md) · [평가 루브릭](EVALUATION-RUBRIC.md) · [참고자료](REFERENCES.md)
