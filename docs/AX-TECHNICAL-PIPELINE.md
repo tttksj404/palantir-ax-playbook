@@ -94,6 +94,59 @@ flowchart LR
 
 이 흐름에서 데이터 평면은 “무엇이 사실인가”를 준비하고, 실행 평면은 “지금 무엇을 할 것인가”를 결정하며, 통제 평면은 “누가 어떤 근거로 무엇을 했는가”를 제한·기록합니다. 세 평면을 한 서비스나 한 프롬프트에 몰아넣지 않는 것이 핵심입니다.
 
+### 1.2 팔란티어 방식으로 매핑하면 어디에 들어가는가
+
+앞의 설계는 벤더 중립적인 논리 설계입니다. 다만 이 저장소의 주제인 팔란티어 기업 AI 도입까지 연결하면, 팔란티어가 공개한 [AIP·Foundry·Apollo 아키텍처](https://www.palantir.com/docs/foundry/architecture-center/overview)를 다음처럼 대응시킬 수 있습니다.
+
+| 이 문서의 파이프라인 | 팔란티어 공개 개념 | 팔란티어식 기업 도입에서의 역할 | 벤더 중립 대응 |
+|---|---|---|---|
+| 원천·수집·품질 | Foundry Data Operations | ERP·MES·CRM·문서·엣지 데이터를 연결·변환·품질 관리 | ingestion, raw/curated, data quality, lineage |
+| 업무 의미·객체 | Ontology | 테이블을 업무 객체·속성·링크·상태·행동으로 연결 | semantic/object model, state machine |
+| 맥락·검색 | Ontology Engine + AIP context engineering | 사용자 권한에 맞는 객체·문서·관계·최신 상태를 AI 맥락으로 구성 | Context Builder, Retrieval/Object API |
+| 자연어·추론 | AIP Logic, AIP Chatbot Studio, Agents, model connectivity | LLM이 업무 맥락을 읽고 설명·추천·계획을 생성 | Model Service, Orchestrator, task contract |
+| 행동·업무 변경 | Ontology Actions, Functions, Workflow Services | 객체 상태 변경·알림·다단계 업무를 권한·조건과 함께 실행 | Action Gateway, approval, write-back adapter |
+| 평가 | AIP Evals | Logic·챗봇·코드 함수의 테스트 케이스·평가 기준·버전 비교 | Evaluation Service, regression gate |
+| 관찰성 | AIP Observability | 실행 이력·로그·추적·성공률·P95·토큰·오류 확인 | Observability, SLO, cost/quality dashboard |
+| 배포·업데이트 | Apollo | 클라우드·온프레미스·엣지 등 여러 환경에 릴리스·운영 | CI/CD, environment promotion, canary, rollback |
+| 현장 전달·제품화 | FDE(Forward Deployed Engineering) | 현업 가까이에서 문제를 정의하고 핵심 엔지니어링과 짧은 피드백 루프로 제품화 | domain product squad, SME, adoption loop |
+
+즉, **팔란티어 적용을 고려한 경우에는 `Foundry → Ontology → AIP → Actions/Workflow → Evals/Observability → Apollo`가 이 기술 파이프라인의 제품별 구현 경로**가 됩니다. 다만 팔란티어 공식 자료는 공개 제품·고객 적용 방식을 설명하는 것이므로, 팔란티어 내부 사내 시스템을 그대로 재현한 설계라고 단정하지 않습니다.
+
+### 1.3 팔란티어 기반 기업 AX 도입 순서
+
+팔란티어 제품을 도입한다고 해서 곧바로 AIP Chatbot부터 만드는 것이 아닙니다. 공개 아키텍처를 실제 기업 도입 순서로 번역하면 다음과 같습니다.
+
+```text
+FDE형 도메인 팀 구성
+  → Foundry에 원천 데이터·문서·이벤트 연결
+  → 품질·권한·계보 확인
+  → Ontology로 고객·주문·설비·공급업체·작업 객체 모델링
+  → AIP에서 읽기 전용 Logic/Chatbot/Agent 구축
+  → AIP Evals로 정상·경계·권한·실패 케이스 평가
+  → Ontology Actions/Workflow로 승인 가능한 행동 연결
+  → AIP Observability로 실행·비용·품질·오류 관찰
+  → Apollo로 대상 환경에 버전 배포·승격·롤백
+  → 현업 피드백과 업무 KPI를 다음 Ontology·AIP 릴리스에 반영
+```
+
+이 순서는 제품 구매 순서가 아니라 위험을 낮추는 구현 순서입니다. `Ontology`가 없는 상태에서 자연어 에이전트를 먼저 만들면 AI가 읽고 바꿀 업무 대상·권한·상태가 불분명해지고, `Actions`·`Evals`·`Observability` 없이 실행부터 연결하면 업무 변경을 재현·감사·복구하기 어렵습니다.
+
+### 1.4 팔란티어 제품을 적용한 공급 지연 대응 예시
+
+| 업무 단계 | Palantir 기반 구현 예시 | 검증 증거 |
+|---|---|---|
+| 데이터 연결 | Foundry에서 ERP 주문·공급업체·재고·계약 문서 연결 | source lineage, freshness, quality run |
+| 업무 모델 | Ontology에 `PurchaseOrder`, `Supplier`, `Material`, `Inventory`와 관계·상태 정의 | object/link/state contract |
+| 읽기 | AIP Chatbot/Logic이 권한에 맞는 지연 주문과 근거를 조회 | citations, data_as_of, permission tests |
+| 추천 | AIP Logic·Agent가 위험 원인·대체안·영향을 구조화해 제안 | AIP Evals, SME labels |
+| 행동 준비 | Ontology Action으로 검토 태스크·승인 요청 초안 생성 | action schema, precondition |
+| 승인·반영 | 권한 있는 담당자가 승인하고 Action/Workflow가 허용된 객체 상태만 변경 | approval audit, idempotency, write-back result |
+| 운영 | AIP Observability로 모델·도구·실행·비용·P95를 관찰 | trace, dashboard, alert |
+| 배포 | Apollo를 통해 승인된 앱·로직·정책 버전을 운영 환경에 승격 | release artifact, canary, rollback |
+| 현장 개선 | FDE형 팀이 거절·수정·예외를 평가 세트와 다음 릴리스에 반영 | feedback label, regression report |
+
+이 표가 기존의 벤더 중립 파이프라인에 추가된 **팔란티어 적용 레이어**입니다. 따라서 문서 전체를 읽을 때는 일반 설계와 Palantir 제품 매핑을 분리해서 보면 됩니다.
+
 ## 2. 먼저 고정할 설계 결정
 
 구현 전에 아래 결정을 문서로 고정해야 합니다. 이 결정이 없으면 개발 중에 파이프라인이 계속 바뀝니다.
