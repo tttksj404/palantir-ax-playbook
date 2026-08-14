@@ -29,23 +29,25 @@ flowchart LR
 - 우리 회사가 90일 안에 검증 가능한 AX 파일럿을 시작하려면 무엇을 준비해야 하는가?
 - 조직 전체의 AX 전환은 전략·업무·데이터·조직·거버넌스·KPI를 어떤 순서로 바꾸는가?
 - 우리 조직의 AX 성숙도와 다음 투자 우선순위를 어떻게 진단하는가?
+- 실제 AX 구축에서 데이터·온라인 추론·행동·평가·CI/CD 파이프라인은 어떻게 연결하는가?
 - 모델 정확도 외에 어떤 평가·운영·변화관리 지표를 봐야 하는가?
 
 ## 문서 구성
 
 1. [팔란티어 AI·AX 플레이북](docs/PALANTIR-AI-AX-PLAYBOOK.md) — 팔란티어 구조·사례와 기업 AI 업무 제품의 기술·조직·거버넌스
 2. [AX 전환 가이드](docs/AX-TRANSFORMATION-GUIDE.md) — 전략부터 업무 재설계·조직·KPI·90일/1년 로드맵까지
-3. [AX 성숙도 평가](docs/AX-MATURITY-ASSESSMENT.md) — 7개 축을 증거 기반으로 진단하고 다음 투자 순서를 정하는 표
-4. [AX 프로그램 캔버스](docs/AX-PROGRAM-CANVAS.md) — 전사 AX North Star·포트폴리오·조직·거버넌스·로드맵 템플릿
-5. [AX 유스케이스 캔버스](docs/AX-USE-CASE-CANVAS.md) — 개별 후보 업무와 파일럿 범위를 정의하는 템플릿
-6. [평가 루브릭](docs/EVALUATION-RUBRIC.md) — 답변·추천·행동형 AI를 출시 전에 검증하는 기준과 테스트 케이스 형식
-7. [참고자료](docs/REFERENCES.md) — 공식 문서와 고객 사례, 각 자료가 뒷받침하는 주장, 자료의 한계
+3. [AX 기술 파이프라인·시스템 설계](docs/AX-TECHNICAL-PIPELINE.md) — 데이터·온라인 실행·행동·평가·CI/CD·LLMOps·서비스 경계
+4. [AX 성숙도 평가](docs/AX-MATURITY-ASSESSMENT.md) — 7개 축을 증거 기반으로 진단하고 다음 투자 순서를 정하는 표
+5. [AX 프로그램 캔버스](docs/AX-PROGRAM-CANVAS.md) — 전사 AX North Star·포트폴리오·조직·거버넌스·로드맵 템플릿
+6. [AX 유스케이스 캔버스](docs/AX-USE-CASE-CANVAS.md) — 개별 후보 업무와 파일럿 범위를 정의하는 템플릿
+7. [평가 루브릭](docs/EVALUATION-RUBRIC.md) — 답변·추천·행동형 AI를 출시 전에 검증하는 기준과 테스트 케이스 형식
+8. [참고자료](docs/REFERENCES.md) — 공식 문서와 고객 사례, 각 자료가 뒷받침하는 주장, 자료의 한계
 
 ## 먼저 읽는 법
 
 - **경영진·기획자**: [AX 전환 가이드](docs/AX-TRANSFORMATION-GUIDE.md) 1~5장 → 30·60·90일 로드맵 → [프로그램 캔버스](docs/AX-PROGRAM-CANVAS.md)
 - **AX/DT 담당자**: [성숙도 평가](docs/AX-MATURITY-ASSESSMENT.md) → [전환 가이드](docs/AX-TRANSFORMATION-GUIDE.md) → 포트폴리오·가치 실현 보드
-- **개발자·데이터 엔지니어**: 본문 4~8장 → 평가 루브릭 → 캔버스의 데이터·행동 계약
+- **개발자·데이터 엔지니어**: [기술 파이프라인](docs/AX-TECHNICAL-PIPELINE.md) → 평가 루브릭 → 캔버스의 데이터·행동 계약
 - **보안·법무·감사**: 본문 7장 권한·거버넌스 → 8장 실패 설계 → 참고자료의 근거 범위
 - **면접·스터디**: 본문 2장 핵심 구조 → 사례 표 → 마지막 학습 과제
 
