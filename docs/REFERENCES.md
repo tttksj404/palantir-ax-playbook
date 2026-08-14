@@ -48,6 +48,21 @@
 | [Palantir FY2025 10-K](https://www.sec.gov/Archives/edgar/data/1321655/000132165526000011/pltr-20251231.htm) | AIP의 출시 시점과 회사가 공개한 사업·고객 맥락 | 회사가 SEC에 제출한 자기보고 공시; 투자 판단 자료로 사용하지 않음 |
 | [DevCon 5](https://www.palantir.com/devcon5/) | AI FDE, 평가·디버깅·오케스트레이션을 보여주는 공개 발표 | 행사 데모·제품 방향 설명 |
 
+## GitHub 실전 스킬·코드 레퍼런스
+
+이 자료들은 팔란티어 공식 제품 문서와 동일한 근거 등급이 아닙니다. 공식 SDK는 API 경계의 참고로, 커뮤니티 레포지터리는 구현·학습 패턴의 참고로 사용합니다. 상세한 선별 결과와 내부 스킬 매핑은 [GitHub AX 스킬 카탈로그](GITHUB-AX-SKILLS-CATALOG.md)에 기록했습니다.
+
+| 자료 | 이 저장소에서 사용하는 근거 | 한계·주의 |
+|---|---|---|
+| [Palantir AI FDE Library](https://github.com/s-andthat/palantir-ai-fde-library) | AI FDE 작업 지시, Ontology·데이터·거버넌스 프롬프트 구조 | 커뮤니티 자료이며 Palantir 공식 지원·성능 보증으로 해석하지 않음 |
+| [AIP Community Registry](https://github.com/palantir/aip-community-registry) | AIP Evals 피드백 루프, 이벤트 입력, DevOps, OSDK 예제 | 저장소 설명상 커뮤니티 기여 프로젝트. 각 예제의 운영 적합성을 별도 검증 |
+| [Palantir OSDK TypeScript](https://github.com/palantir/osdk-ts) | Ontology Object·Action을 애플리케이션에서 사용하는 코드 경계 | 실제 Developer Console·권한·생성 SDK 환경에 따라 확인 필요 |
+| [Foundry Platform Python SDK](https://github.com/palantir/foundry-platform-python) | Foundry API·AIP Agent·데이터·관리 API 연동 경계 | Ontology 중심 앱과 일반 Platform API의 선택을 README 지침에 따라 구분 |
+| [Data Engineering Agent Skills](https://github.com/vaquarkhan/data-engineering-agent-skills) | 데이터 계약, 품질, 계보, replay/backfill, release gate | Foundry 전용이 아닌 일반 데이터 엔지니어링 스킬 팩 |
+| [OWASP Secure Agent Playbook](https://github.com/OWASP/secure-agent-playbook) | 에이전트·MCP·툴 보안, 위협모델, 증거 기반 점검 | 조직의 규제·법적 통제를 자동 충족하지 않음 |
+| [Agents Towards Production](https://github.com/NirDiamant/agents-towards-production) | 에이전트 평가·관찰성·보안·배포를 학습하는 코드 사례 | 기술 선택을 Palantir 구성요소와 동일시하지 않음 |
+| [Awesome FDE Roadmap](https://github.com/pierpaolo28/Awesome-FDE-Roadmap) | FDE 역량과 현장 전달·확장 학습 범위 | Palantir 전용 구현 가이드가 아닌 커뮤니티 로드맵 |
+
 ## AI 위험관리
 
 | 자료 | 이 문서에서 사용한 근거 | 한계·주의 |
@@ -69,6 +84,8 @@
 - AX 로드맵·평가 임계값·조직 모델: 이 저장소의 권고안
 
 새로 추가한 AX 전환 가이드는 NIST·ISO·OECD의 원칙을 기업 실행 언어로 번역한 분석 문서입니다. NIST Playbook은 일률적인 순서의 체크리스트가 아니며, ISO/IEC 42001은 AI 관리시스템 표준이고, OECD AI Principles는 정책·설계 원칙입니다. 세 자료 어느 것도 특정 기업의 AX 성공이나 규제 준수를 자동 보장하지 않습니다.
+
+GitHub 스킬은 그대로 복사하지 않고 `skills/` 아래의 내부 절차로 재작성했습니다. 따라서 현재 스킬의 상태는 Palantir 계정에서 실행된 결과가 아니라 **설계·학습용 적용본**입니다. 실제 적용 시 저장소의 라이선스, 의존성, 서비스 약관, 계정 권한, 데이터 보존 정책을 다시 확인해야 합니다.
 
 따라서 제안서나 면접에서 수치를 사용할 때에는 반드시 `누가`, `언제`, `어떤 기준선과 정의로`, `독립 검증 여부`를 함께 말해야 합니다.
 

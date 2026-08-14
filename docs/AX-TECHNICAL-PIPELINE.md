@@ -5,6 +5,7 @@
 이 문서는 “어떤 모델을 쓸까?”보다 먼저 **어떤 데이터가 들어와 어떤 업무 판단을 거쳐 어떤 시스템 상태를 바꾸고, 그 결과를 어떻게 평가·감사·되돌릴 것인가**를 설계하는 데 초점을 둡니다.
 
 - 관련 문서: [AX 전환 가이드](AX-TRANSFORMATION-GUIDE.md), [AX 프로그램 캔버스](AX-PROGRAM-CANVAS.md), [AI 평가 루브릭](EVALUATION-RUBRIC.md)
+- 실행 스킬: [AX 실행 스킬](../skills/README.md), [GitHub AX 스킬 카탈로그](GITHUB-AX-SKILLS-CATALOG.md)
 - 대상: AX 아키텍트, 데이터·AI·백엔드 개발자, 플랫폼/SRE, 보안·감사 담당자
 - 설계 범위: 배치·이벤트·온라인 요청·사람 승인·업무 시스템 반영·운영 피드백
 - 원칙: 벤더 중립적 논리 설계. Palantir의 Ontology·AIP·Actions 개념은 참고 패턴으로만 사용
@@ -786,3 +787,19 @@ AX 기술 파이프라인은 다음 문장을 증명할 수 있어야 완성된 
 
 이 문서의 설계는 실제 코드가 존재한다는 뜻이 아닙니다. AX를 구현할 때 필요한 계약·경계·검증 증거를 빠뜨리지 않도록 하는 **구축 설계 청사진**입니다. 특정 조직의 시스템에 적용하려면 원천 시스템·데이터·권한·규제·업무 기준선을 대입해 구체화해야 합니다.
 
+## 15. 이 레포의 실행 스킬 레이어
+
+앞의 파이프라인을 실제 작업 순서로 적용할 때는 [AX 실행 스킬](../skills/README.md)의 8개 `SKILL.md`를 사용합니다. 외부 GitHub 자료를 그대로 설치하는 대신, 각 단계의 입력·산출물·완료 게이트·실패 조건을 내부 문서로 고정한 구조입니다.
+
+| 파이프라인 단계 | 실행 스킬 | 완료 전에 확인할 것 |
+|---|---|---|
+| 문제·범위 | [01 유스케이스 발견](../skills/01-discovery-and-usecase/SKILL.md) | 기준선, 업무 오너, 성공·중단 조건 |
+| 의미·객체 | [02 Ontology 모델링](../skills/02-ontology-modeling/SKILL.md) | canonical key, 상태 전이, 권한, 행동 계약 |
+| 데이터 | [03 데이터 계약·파이프라인](../skills/03-data-contract-and-pipeline/SKILL.md) | 품질, 신선도, 계보, idempotency, replay/backfill |
+| AI 작업 | [04 AI FDE 프롬프트](../skills/04-ai-fde-prompting/SKILL.md) | 최소 맥락, 도구 범위, 출력·근거·거절 계약 |
+| 행동 | [05 행동·승인·권한](../skills/05-action-and-approval-governance/SKILL.md) | allowlist, 권한 재검증, 승인, 감사, 보상 행동 |
+| 평가 | [06 평가·피드백](../skills/06-evals-and-feedback-loop/SKILL.md) | 정상·경계·권한·실패 세트와 회귀 게이트 |
+| 운영 | [07 관찰성·배포·롤백](../skills/07-observability-release-rollback/SKILL.md) | 버전 manifest, shadow/canary, trace, rollback |
+| 조직·확장 | [08 FDE 현장 전달](../skills/08-fde-adoption-and-field-delivery/SKILL.md) | 현업 채택, 운영 책임, 실제 KPI, 확장 조건 |
+
+이 표의 `완료 전에 확인할 것`은 기능 목록이 아니라 승격 게이트입니다. 증거가 없으면 읽기 전용·추천·sandbox 단계에 머물고, 확인되지 않은 업무 write-back을 성공 사례로 보고하지 않습니다.
