@@ -55,6 +55,10 @@
 | [NIST AI Risk Management Framework](https://www.nist.gov/itl/ai-risk-management-framework) | 자발적·권리 보존형·부문 중립적 AI 위험관리 프레임워크 | 법적 의무나 특정 산업 규정을 자동 충족하지 않음 |
 | [NIST AI RMF Playbook](https://www.nist.gov/itl/ai-risk-management-framework/nist-ai-rmf-playbook) | Govern·Map·Measure·Manage 구조 | 조직 상황에 맞게 조정해야 하는 참고 가이드 |
 | [NIST AI RMF FAQ](https://www.nist.gov/itl/ai-risk-management-framework/nist-ai-rmf-playbook-faqs) | 일률적인 순서의 체크리스트가 아니라 유연한 동반 자료라는 성격 | 구체적인 법률·보안 통제는 별도 검토 필요 |
+| [ISO/IEC 42001:2023](https://www.iso.org/standard/42001) | 조직의 AI 관리시스템을 수립·구현·유지·지속 개선하기 위한 국제표준의 범위 | 인증 또는 표준 활용이 특정 법률·규제 준수를 자동 보장하지 않음 |
+| [ISO AI management systems guide](https://www.iso.org/artificial-intelligence/ai-management-systems) | AI 관리시스템을 Plan-Do-Check-Act 방식의 지속 개선으로 해석하는 관점 | ISO의 설명 자료이며 실제 인증·심사 요구사항은 표준 원문과 심사기관 확인 필요 |
+| [OECD AI Principles](https://www.oecd.org/en/topics/ai-principles.html) | 인간 중심·권리·투명성·안전·책임성 관점의 국제 원칙 | 법률이 아니라 정책·설계 원칙이며 산업·국가별 의무를 대체하지 않음 |
+| [OECD 2024 AI Principles update](https://www.oecd.org/en/about/news/press-releases/2024/05/oecd-updates-ai-principles-to-stay-abreast-of-rapid-technological-developments.html) | 2024년 업데이트에서 생성형 AI, 안전, 정보 무결성, 책임 있는 사업 수행을 강조한 배경 | OECD의 정책 발표 자료 |
 
 ## 자료 사용 규칙
 
@@ -63,5 +67,7 @@
 - 제품 기능·아키텍처: 공식 문서의 설명을 짧게 재구성
 - 고객 성과: 원 출처의 주장 범위를 넘지 않도록 사례로만 사용
 - AX 로드맵·평가 임계값·조직 모델: 이 저장소의 권고안
+
+새로 추가한 AX 전환 가이드는 NIST·ISO·OECD의 원칙을 기업 실행 언어로 번역한 분석 문서입니다. NIST Playbook은 일률적인 순서의 체크리스트가 아니며, ISO/IEC 42001은 AI 관리시스템 표준이고, OECD AI Principles는 정책·설계 원칙입니다. 세 자료 어느 것도 특정 기업의 AX 성공이나 규제 준수를 자동 보장하지 않습니다.
 
 따라서 제안서나 면접에서 수치를 사용할 때에는 반드시 `누가`, `언제`, `어떤 기준선과 정의로`, `독립 검증 여부`를 함께 말해야 합니다.
