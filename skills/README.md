@@ -1,6 +1,6 @@
 # AX 실행 스킬
 
-이 디렉터리는 GitHub에서 조사한 팔란티어·AI FDE·데이터 엔지니어링·에이전트 보안 자료를 이 저장소에 맞는 실행 절차로 재작성한 것입니다.
+이 디렉터리는 GitHub·웹에서 조사한 팔란티어·AI FDE·데이터 엔지니어링·에이전트 보안·그래프 오케스트레이션 자료를 이 저장소에 맞는 실행 절차로 재작성한 것입니다.
 
 이 파일들은 Palantir 공식 스킬 패키지가 아닙니다. 각 스킬은 **업무 정의 → 계약 → 구현 → 검증 → 운영**의 순서를 강제하기 위한 학습·설계 템플릿입니다.
 
@@ -11,13 +11,14 @@
   → 02 업무 객체·Ontology 모델링
   → 03 데이터 계약·파이프라인
   → 04 AI FDE 프롬프트·작업 지시
+  → 09 그래프 엔지니어링·상태 전이
   → 05 행동·승인·권한
   → 06 평가·피드백
   → 07 관찰성·배포·롤백
   → 08 현장 전달·채택·확장
 ```
 
-각 단계는 앞 단계의 산출물을 입력으로 사용합니다. 앞 단계의 계약이 없는 상태에서 다음 스킬로 건너뛰면 `NEEDS_FIX`로 판정합니다.
+각 단계는 앞 단계의 산출물을 입력으로 사용합니다. `09 그래프 엔지니어링`은 기존 업무 trace를 관찰한 뒤 실행 토폴로지를 고정하는 단계이며, 기존 번호와 링크를 보존하기 위해 09번으로 추가했습니다. 앞 단계의 계약이 없는 상태에서 다음 스킬로 건너뛰면 `NEEDS_FIX`로 판정합니다.
 
 ## 스킬 목록
 
@@ -27,6 +28,7 @@
 | 02 | [`ontology-modeling/SKILL.md`](02-ontology-modeling/SKILL.md) | 업무 객체·관계·상태·행동을 모델링할 때 |
 | 03 | [`data-contract-and-pipeline/SKILL.md`](03-data-contract-and-pipeline/SKILL.md) | 원천 연결, 데이터 품질, 이벤트, 재처리, 계보를 설계할 때 |
 | 04 | [`ai-fde-prompting/SKILL.md`](04-ai-fde-prompting/SKILL.md) | AI FDE·개발자·현업이 같은 작업 계약으로 협업할 때 |
+| 09 | [`graph-engineering/SKILL.md`](09-graph-engineering/SKILL.md) | trace를 노드·엣지·상태·분기·join·승인·복구 그래프로 고정할 때 |
 | 05 | [`action-and-approval-governance/SKILL.md`](05-action-and-approval-governance/SKILL.md) | AI 추천을 업무 시스템 변경으로 연결할 때 |
 | 06 | [`evals-and-feedback-loop/SKILL.md`](06-evals-and-feedback-loop/SKILL.md) | 출시 전후 평가와 사용자 피드백을 회귀 테스트로 만들 때 |
 | 07 | [`observability-release-rollback/SKILL.md`](07-observability-release-rollback/SKILL.md) | 프롬프트·정책·데이터·코드의 배포와 운영을 관리할 때 |
@@ -71,11 +73,13 @@ AI 에이전트에게 스킬을 사용할 때는 다음 맥락을 먼저 제공�
 - Palantir 공식 SDK는 API와 코드 경계의 참고로만 사용한다.
 - AIP Community Registry는 구현 패턴의 참고로 사용하며 공식 지원으로 표현하지 않는다.
 - 커뮤니티 스킬 팩은 이 디렉터리의 절차로 재작성하고, 제품·성능 주장은 별도 검증한다.
+- 그래프 구현 레포지터리는 상태·내구성·토폴로지 검사 패턴의 참고로만 사용하고, Palantir 구성요소로 자동 치환하지 않는다.
 - 외부 저장소의 비밀값, 고객 데이터, 토큰, 약관상 제한된 코드를 이 레포에 넣지 않는다.
 
 ## 관련 문서
 
 - [GitHub 기반 AX 스킬 카탈로그](../docs/GITHUB-AX-SKILLS-CATALOG.md)
+- [AX 그래프 엔지니어링 플레이북](../docs/GRAPH-ENGINEERING-PLAYBOOK.md)
 - [AX 기술 파이프라인](../docs/AX-TECHNICAL-PIPELINE.md)
 - [평가 루브릭](../docs/EVALUATION-RUBRIC.md)
 - [AX 유스케이스 캔버스](../docs/AX-USE-CASE-CANVAS.md)

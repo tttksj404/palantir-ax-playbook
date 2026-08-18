@@ -789,7 +789,7 @@ AX 기술 파이프라인은 다음 문장을 증명할 수 있어야 완성된 
 
 ## 15. 이 레포의 실행 스킬 레이어
 
-앞의 파이프라인을 실제 작업 순서로 적용할 때는 [AX 실행 스킬](../skills/README.md)의 8개 `SKILL.md`를 사용합니다. 외부 GitHub 자료를 그대로 설치하는 대신, 각 단계의 입력·산출물·완료 게이트·실패 조건을 내부 문서로 고정한 구조입니다.
+앞의 파이프라인을 실제 작업 순서로 적용할 때는 [AX 실행 스킬](../skills/README.md)의 9개 `SKILL.md`를 사용합니다. 외부 GitHub·웹 자료를 그대로 설치하는 대신, 각 단계의 입력·산출물·완료 게이트·실패 조건을 내부 문서로 고정한 구조입니다. 특히 실행 흐름이 복잡해지는 시점에는 [그래프 엔지니어링 플레이북](GRAPH-ENGINEERING-PLAYBOOK.md)을 먼저 읽고 `04 AI 작업 → 09 그래프 → 05 행동` 순서로 연결합니다.
 
 | 파이프라인 단계 | 실행 스킬 | 완료 전에 확인할 것 |
 |---|---|---|
@@ -797,6 +797,7 @@ AX 기술 파이프라인은 다음 문장을 증명할 수 있어야 완성된 
 | 의미·객체 | [02 Ontology 모델링](../skills/02-ontology-modeling/SKILL.md) | canonical key, 상태 전이, 권한, 행동 계약 |
 | 데이터 | [03 데이터 계약·파이프라인](../skills/03-data-contract-and-pipeline/SKILL.md) | 품질, 신선도, 계보, idempotency, replay/backfill |
 | AI 작업 | [04 AI FDE 프롬프트](../skills/04-ai-fde-prompting/SKILL.md) | 최소 맥락, 도구 범위, 출력·근거·거절 계약 |
+| 실행 토폴로지 | [09 그래프 엔지니어링](../skills/09-graph-engineering/SKILL.md) | node/edge, 상태, 분기, 병렬·join, checkpoint, resume, retry·escalation |
 | 행동 | [05 행동·승인·권한](../skills/05-action-and-approval-governance/SKILL.md) | allowlist, 권한 재검증, 승인, 감사, 보상 행동 |
 | 평가 | [06 평가·피드백](../skills/06-evals-and-feedback-loop/SKILL.md) | 정상·경계·권한·실패 세트와 회귀 게이트 |
 | 운영 | [07 관찰성·배포·롤백](../skills/07-observability-release-rollback/SKILL.md) | 버전 manifest, shadow/canary, trace, rollback |
