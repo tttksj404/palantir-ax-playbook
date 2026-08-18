@@ -1,6 +1,6 @@
 # 참고자료와 근거 범위
 
-기존 자료 확인 기준일: **2026-08-14** · 그래프 엔지니어링 자료 추가 확인일: **2026-08-18**
+자료 확인 기준일: **2026-08-14**
 
 이 문서는 1차적으로 팔란티어 공식 문서·공식 고객 사례·공시를 사용하고, AI 위험관리의 일반 원칙은 NIST AI RMF를 사용했습니다. 링크의 내용·제품 명칭·공개 상태는 변경될 수 있으므로, 실제 도입·구매·법무 판단 전 원문을 다시 확인해야 합니다.
 
@@ -62,20 +62,6 @@
 | [OWASP Secure Agent Playbook](https://github.com/OWASP/secure-agent-playbook) | 에이전트·MCP·툴 보안, 위협모델, 증거 기반 점검 | 조직의 규제·법적 통제를 자동 충족하지 않음 |
 | [Agents Towards Production](https://github.com/NirDiamant/agents-towards-production) | 에이전트 평가·관찰성·보안·배포를 학습하는 코드 사례 | 기술 선택을 Palantir 구성요소와 동일시하지 않음 |
 | [Awesome FDE Roadmap](https://github.com/pierpaolo28/Awesome-FDE-Roadmap) | FDE 역량과 현장 전달·확장 학습 범위 | Palantir 전용 구현 가이드가 아닌 커뮤니티 로드맵 |
-
-## 그래프 엔지니어링·오케스트레이션
-
-그래프 엔지니어링은 이 레포에서 실행·제어 그래프를 뜻합니다. Ontology/지식 그래프, 데이터 계보 그래프, Graph ML/GNN과 구분합니다. 상세한 출처 경계와 내부 적용 절차는 [AX 그래프 엔지니어링 플레이북](GRAPH-ENGINEERING-PLAYBOOK.md)과 [09 그래프 엔지니어링 스킬](../skills/09-graph-engineering/SKILL.md)에 기록했습니다.
-
-| 자료 | 이 저장소에서 사용하는 근거 | 한계·주의 |
-|---|---|---|
-| [@0xwhrrari 원문 X 게시물](https://x.com/0xwhrrari/status/2086784668003598356?s=46) | 그래프 엔지니어링을 AX 에이전트 실행 설계에 포함하게 된 출발점 | 현재 작업 환경에서 본문을 직접 추출하지 못했으므로 직접 인용하지 않음 |
-| [Agentic Engineering — Cold Mountain Wiki](https://www.coldmountain.ai/wiki/tools/agentic-engineering) | harness·loop·graph의 역할 분리, 증거 기반 loop, 실패 층 진단 | 2차 정리이며 Palantir 공식 문서가 아님 |
-| [Agent Harness vs. Loop vs. Graph Engineering — Today for AI](https://todayforai.com/en/guides/20260726-guide-three-agent-engineering-architectures) | node·edge·state·branch·join·cycle·checkpoint, graph를 도입할 조건 | 2차 해설이며 원 출처·구현 버전을 다시 확인해야 함 |
-| [LangGraph](https://github.com/langchain-ai/langgraph) | 상태 보존형 그래프 실행, 조건부 경로, checkpoint·resume 학습 | LangGraph의 API·운영 특성을 Palantir 제품 기능으로 표현하지 않음 |
-| [Temporal](https://github.com/temporalio/temporal) | 장기 실행 workflow, retry·timeout·resume·보상 흐름 | LLM 전용이나 Foundry 전용이 아님 |
-| [Prefect](https://github.com/PrefectHQ/prefect) | 작업 상태·재시도·일정·운영 관찰성의 일반 패턴 | 데이터 워크플로 도구이며 AX agent runtime으로 자동 치환하지 않음 |
-| [NetworkX](https://github.com/networkx/networkx) | topology·reachability·cycle 정적 분석 아이디어 | 그래프 실행·내구성 런타임이 아님 |
 
 ## AI 위험관리
 

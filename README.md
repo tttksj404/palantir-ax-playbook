@@ -32,7 +32,6 @@ flowchart LR
 - 실제 AX 구축에서 데이터·온라인 추론·행동·평가·CI/CD 파이프라인은 어떻게 연결하는가?
 - 모델 정확도 외에 어떤 평가·운영·변화관리 지표를 봐야 하는가?
 - GitHub의 AI FDE·데이터·보안 스킬을 AX 구축 절차에 어떻게 재사용하는가?
-- 에이전트의 Harness·Loop·Graph를 어떻게 분리하고, 실제 AX 실행 그래프를 어떻게 설계하는가?
 
 ## 문서 구성
 
@@ -44,24 +43,22 @@ flowchart LR
 6. [AX 유스케이스 캔버스](docs/AX-USE-CASE-CANVAS.md) — 개별 후보 업무와 파일럿 범위를 정의하는 템플릿
 7. [평가 루브릭](docs/EVALUATION-RUBRIC.md) — 답변·추천·행동형 AI를 출시 전에 검증하는 기준과 테스트 케이스 형식
 8. [GitHub AX 스킬 카탈로그](docs/GITHUB-AX-SKILLS-CATALOG.md) — 조사한 외부 저장소의 공식성·적용 단계·주의점과 내부 스킬 매핑
-9. [AX 그래프 엔지니어링 플레이북](docs/GRAPH-ENGINEERING-PLAYBOOK.md) — Harness·Loop·Graph를 구분하고 실행 그래프·상태·분기·승인·복구를 설계하는 방법
-10. [AX 실행 스킬](skills/README.md) — 유스케이스부터 그래프 오케스트레이션·FDE 현장 전달까지 재사용하는 9개 내부 `SKILL.md`
-11. [참고자료](docs/REFERENCES.md) — 공식 문서·고객 사례·GitHub·웹 자료, 각 자료가 뒷받침하는 주장과 한계
+9. [AX 실행 스킬](skills/README.md) — 유스케이스부터 FDE 현장 전달까지 재사용하는 8개 내부 `SKILL.md`
+10. [참고자료](docs/REFERENCES.md) — 공식 문서·고객 사례·GitHub 자료, 각 자료가 뒷받침하는 주장과 한계
 
-## GitHub·웹 참고자료와 적용 지도
+## GitHub 참고자료와 적용 지도
 
-아래 자료를 그대로 복사하지 않고, 팔란티어 공식 SDK·사례와 GitHub·웹 커뮤니티·벤더 중립 자료를 구분해 내부 AX 스킬로 재작성했습니다. 그래프 엔지니어링 자료의 출처 경계와 전체 매핑은 [GitHub AX 스킬 카탈로그](docs/GITHUB-AX-SKILLS-CATALOG.md)와 [그래프 엔지니어링 플레이북](docs/GRAPH-ENGINEERING-PLAYBOOK.md)에 기록했습니다.
+아래 자료를 그대로 복사하지 않고, 팔란티어 공식 SDK·사례와 커뮤니티·벤더 중립 자료를 구분해 내부 AX 스킬로 재작성했습니다. 각 자료의 공식성·주의점·전체 매핑은 [GitHub AX 스킬 카탈로그](docs/GITHUB-AX-SKILLS-CATALOG.md)에 기록했습니다.
 
 ```mermaid
 flowchart LR
-    subgraph Sources["GitHub·웹 참고자료"]
+    subgraph Sources["GitHub 참고자료"]
         FDE["AI FDE Library"]
         REG["AIP Community Registry"]
         OSDK["Palantir OSDK"]
         DATA["Data Engineering Agent Skills"]
         SEC["OWASP Secure Agent Playbook"]
         ROAD["Ontology Strategy · FDE Roadmap"]
-        GRAPH["@0xwhrrari graph / loop / harness"]
     end
 
     subgraph Skills["이 레포의 내부 AX 스킬"]
@@ -73,7 +70,6 @@ flowchart LR
         S6["06 평가·피드백"]
         S7["07 운영·롤백"]
         S8["08 FDE 전달"]
-        S9["09 그래프 엔지니어링"]
     end
 
     subgraph Pipeline["AX 기술 파이프라인"]
@@ -98,16 +94,11 @@ flowchart LR
     SEC --> S7
     ROAD --> S1
     ROAD --> S8
-    GRAPH --> S9
 
     S1 --> P1
     S2 --> P1
     S3 --> P1
     S4 --> P2
-    S9 --> P2
-    S9 --> P3
-    S9 --> P4
-    S9 --> P5
     S5 --> P3
     S6 --> P4
     S7 --> P5
@@ -123,8 +114,6 @@ flowchart LR
 | [Data Engineering Agent Skills](https://github.com/vaquarkhan/data-engineering-agent-skills) | 벤더 중립 커뮤니티 | 데이터 계약, 품질, 계보, replay/backfill, 릴리스 게이트 |
 | [OWASP Secure Agent Playbook](https://github.com/OWASP/secure-agent-playbook) | 보안 플레이북 | 툴·MCP 경계, 프롬프트 인젝션, 권한·감사 점검 |
 | [Ontology Strategy](https://github.com/Leading-AI-IO/palantir-ontology-strategy) · [FDE Roadmap](https://github.com/pierpaolo28/Awesome-FDE-Roadmap) | 커뮤니티 학습 자료 | 업무 객체 중심 설계, FDE 현장 전달·채택·확장 |
-| [@0xwhrrari graph/harness/loop framing](https://x.com/0xwhrrari/status/2086784668003598356?s=46) | 웹 커뮤니티 자료 | 그래프의 상태·분기·병렬·join·복구와 harness·loop의 경계. 원문 직접 추출이 안 된 상태이므로 관련 공개 정리와 함께 학습용으로만 사용 |
-| [LangGraph](https://github.com/langchain-ai/langgraph) · [Temporal](https://github.com/temporalio/temporal) | 그래프·내구성 오케스트레이션 구현 레퍼런스 | 상태 그래프, checkpoint, resume, workflow 실행 개념. Palantir 구성요소와 동일시하지 않음 |
 
 > 참고자료는 Palantir 공식 지원이나 성능 보증을 의미하지 않습니다. 실제 계정·데이터·권한 환경에서 실행하지 않은 내용은 `설계·학습용 적용본`으로 표시합니다.
 
@@ -133,7 +122,7 @@ flowchart LR
 - **경영진·기획자**: [AX 전환 가이드](docs/AX-TRANSFORMATION-GUIDE.md) 1~5장 → 30·60·90일 로드맵 → [프로그램 캔버스](docs/AX-PROGRAM-CANVAS.md)
 - **AX/DT 담당자**: [성숙도 평가](docs/AX-MATURITY-ASSESSMENT.md) → [전환 가이드](docs/AX-TRANSFORMATION-GUIDE.md) → 포트폴리오·가치 실현 보드
 - **개발자·데이터 엔지니어**: [기술 파이프라인](docs/AX-TECHNICAL-PIPELINE.md) → [AX 실행 스킬](skills/README.md) → 평가 루브릭 → 캔버스의 데이터·행동 계약
-- **AI FDE·플랫폼팀**: [GitHub AX 스킬 카탈로그](docs/GITHUB-AX-SKILLS-CATALOG.md) → [그래프 엔지니어링 플레이북](docs/GRAPH-ENGINEERING-PLAYBOOK.md) → `01·02·03·04 → 09 → 05·06·07·08` 순서로 실제 유스케이스에 적용
+- **AI FDE·플랫폼팀**: [GitHub AX 스킬 카탈로그](docs/GITHUB-AX-SKILLS-CATALOG.md) → 01~08 스킬을 실제 유스케이스에 순서대로 적용
 - **보안·법무·감사**: 본문 7장 권한·거버넌스 → 8장 실패 설계 → 참고자료의 근거 범위
 - **면접·스터디**: 본문 2장 핵심 구조 → 사례 표 → 마지막 학습 과제
 
@@ -145,9 +134,8 @@ flowchart LR
 - **[사례]**: 팔란티어 또는 고객이 공개한 사례. 수치와 성과는 별도 독립 검증이 없으면 `vendor/customer-reported`로 표시
 - **[분석]**: 공개 자료를 기업 AX 관점에서 해석한 내용
 - **[권고]**: 특정 기업에 그대로 복사하기 위한 명령이 아니라, 이 저장소가 제안하는 실행 원칙
-- **[커뮤니티·웹 자료]**: 제품 공식 문서가 아닌 공개 실무자의 개념·구현 정리. 원문·버전·운영 적합성을 다시 확인
 
-공개 자료만으로 팔란티어 내부의 모든 사내 AI 사용 방식을 확인할 수는 없습니다. 따라서 이 저장소의 표현은 “팔란티어가 기업 고객의 운영에 AI를 연결하는 공개 방식”을 중심으로 하며, 팔란티어 내부 운영을 단정하지 않습니다. 기존 본문 자료 확인 기준일은 **2026-08-14**, 그래프 엔지니어링 자료 추가 확인일은 **2026-08-18**입니다.
+공개 자료만으로 팔란티어 내부의 모든 사내 AI 사용 방식을 확인할 수는 없습니다. 따라서 이 저장소의 표현은 “팔란티어가 기업 고객의 운영에 AI를 연결하는 공개 방식”을 중심으로 하며, 팔란티어 내부 운영을 단정하지 않습니다. 자료 확인 기준일은 **2026-08-14**입니다.
 
 ## 핵심 학습 산출물
 
