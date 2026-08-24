@@ -42,12 +42,13 @@ flowchart LR
 6. [AX 유스케이스 캔버스](docs/AX-USE-CASE-CANVAS.md) — 개별 후보 업무와 파일럿 범위를 정의하는 템플릿
 7. [평가 루브릭](docs/EVALUATION-RUBRIC.md) — 답변·추천·행동형 AI를 출시 전에 검증하는 기준과 테스트 케이스 형식
 8. [참고자료](docs/REFERENCES.md) — 공식 문서와 고객 사례, 각 자료가 뒷받침하는 주장, 자료의 한계
+9. [온프레미스 Agentic MAS 구현 레퍼런스](docs/ONPREM-AGENTIC-MAS-REFERENCE.md) — Palantir AX의 Ontology·Actions·Evals 패턴을 LangGraph·로컬 모델·ETL·Action Gateway 코드와 명령어로 구현하는 방법
 
 ## 먼저 읽는 법
 
 - **경영진·기획자**: [AX 전환 가이드](docs/AX-TRANSFORMATION-GUIDE.md) 1~5장 → 30·60·90일 로드맵 → [프로그램 캔버스](docs/AX-PROGRAM-CANVAS.md)
 - **AX/DT 담당자**: [성숙도 평가](docs/AX-MATURITY-ASSESSMENT.md) → [전환 가이드](docs/AX-TRANSFORMATION-GUIDE.md) → 포트폴리오·가치 실현 보드
-- **개발자·데이터 엔지니어**: [기술 파이프라인](docs/AX-TECHNICAL-PIPELINE.md) → 평가 루브릭 → 캔버스의 데이터·행동 계약
+- **개발자·데이터 엔지니어**: [기술 파이프라인](docs/AX-TECHNICAL-PIPELINE.md) → [온프레미스 Agentic MAS 구현 레퍼런스](docs/ONPREM-AGENTIC-MAS-REFERENCE.md) → 평가 루브릭 → 캔버스의 데이터·행동 계약
 - **보안·법무·감사**: 본문 7장 권한·거버넌스 → 8장 실패 설계 → 참고자료의 근거 범위
 - **면접·스터디**: 본문 2장 핵심 구조 → 사례 표 → 마지막 학습 과제
 

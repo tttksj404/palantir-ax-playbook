@@ -1,0 +1,30 @@
+{
+  "name": "internal-review-policy-agent",
+  "description": "A policy-gated internal agent that proposes review tasks from cited evidence.",
+  "url": "https://agent.internal.example/a2a",
+  "version": "0.1.0",
+  "protocolVersion": "0.3",
+  "capabilities": {
+    "streaming": false,
+    "pushNotifications": false
+  },
+  "defaultInputModes": [
+    "text/plain",
+    "application/json"
+  ],
+  "defaultOutputModes": [
+    "application/json"
+  ],
+  "skills": [
+    {
+      "id": "propose-review-task",
+      "name": "Propose review task",
+      "description": "Creates a structured proposal only; approval and write-back remain local.",
+      "tags": [
+        "evidence",
+        "review",
+        "policy"
+      ]
+    }
+  ]
+}
