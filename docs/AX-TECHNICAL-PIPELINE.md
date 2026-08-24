@@ -4,7 +4,7 @@
 
 이 문서는 “어떤 모델을 쓸까?”보다 먼저 **어떤 데이터가 들어와 어떤 업무 판단을 거쳐 어떤 시스템 상태를 바꾸고, 그 결과를 어떻게 평가·감사·되돌릴 것인가**를 설계하는 데 초점을 둡니다.
 
-- 관련 문서: [AX 전환 가이드](AX-TRANSFORMATION-GUIDE.md), [AX 프로그램 캔버스](AX-PROGRAM-CANVAS.md), [AI 평가 루브릭](EVALUATION-RUBRIC.md)
+- 관련 문서: [AX 전환 가이드](AX-TRANSFORMATION-GUIDE.md), [AX 프로그램 캔버스](AX-PROGRAM-CANVAS.md), [AI 평가 루브릭](EVALUATION-RUBRIC.md), [온프레미스 Agentic MAS 구현 레퍼런스](ONPREM-AGENTIC-MAS-REFERENCE.md)
 - 대상: AX 아키텍트, 데이터·AI·백엔드 개발자, 플랫폼/SRE, 보안·감사 담당자
 - 설계 범위: 배치·이벤트·온라인 요청·사람 승인·업무 시스템 반영·운영 피드백
 - 원칙: 벤더 중립적 논리 설계. Palantir의 Ontology·AIP·Actions 개념은 참고 패턴으로만 사용
@@ -146,6 +146,8 @@ FDE형 도메인 팀 구성
 | 현장 개선 | FDE형 팀이 거절·수정·예외를 평가 세트와 다음 릴리스에 반영 | feedback label, regression report |
 
 이 표가 기존의 벤더 중립 파이프라인에 추가된 **팔란티어 적용 레이어**입니다. 따라서 문서 전체를 읽을 때는 일반 설계와 Palantir 제품 매핑을 분리해서 보면 됩니다.
+
+위 논리 설계를 온프레미스 환경에서 재현하는 최소 실행 예제는 [온프레미스 Agentic MAS 구현 레퍼런스](ONPREM-AGENTIC-MAS-REFERENCE.md)의 LangGraph workflow, MemoryStore, ETL quarantine, Policy/Action Gateway, self-improvement gate에서 확인할 수 있습니다.
 
 ## 2. 먼저 고정할 설계 결정
 
